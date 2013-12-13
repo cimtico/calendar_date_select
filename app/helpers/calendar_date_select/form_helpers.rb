@@ -143,12 +143,9 @@ module CalendarDateSelect::FormHelpers
           end
         end
 
-    tag = if defined?(ActionView::Helpers::InstanceTag)
-            ActionView::Helpers::InstanceTag.new(object, method, self, options.delete(:object))
-          else
-            options.delete(:object)
-            ActionView::Helpers::Tags::TextField.new(object, method, self, options)
-          end
+    
+    options.delete(:object)
+    tag = ActionView::Helpers::Tags::TextField.new(object, method, self, options)
 
 
     calendar_date_select_output(
